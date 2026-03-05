@@ -75,6 +75,7 @@ readonly PI=3.14159
 
 # 删除变量（不能删除只读变量）
 unset age
+```
 
 ### 环境变量
 
@@ -89,6 +90,7 @@ echo $USER
 
 # 设置环境变量
 export MY_VAR="my value"
+```
 
 ### 位置参数变量
 
@@ -104,6 +106,7 @@ echo "所有参数（作为一个字符串）：$*"
 
 执行：bash
 ./params.sh arg1 arg2
+```
 
 ## 4. Shell基本运算符
 
@@ -140,6 +143,7 @@ echo "a == b ? $((a == b))"
 
 # 不相等
 echo "a != b ? $((a != b))"
+```
 
 ### 关系运算符
 
@@ -182,6 +186,7 @@ if [ $a -le $b ]
 then
     echo "a 小于等于 b"
 fi
+```
 
 ### 字符串运算符
 
@@ -219,6 +224,7 @@ if [ $a ]
 then
     echo "a 不是空"
 fi
+```
 
 ### 文件测试运算符
 
@@ -258,6 +264,7 @@ if [ -x $file ]
 then
     echo "文件可执行"
 fi
+```
 
 ## 5. Shell条件语句
 
@@ -277,6 +284,7 @@ then
 else
     echo "这是零"
 fi
+```
 
 ### case语句
 
@@ -299,6 +307,7 @@ case $choice in
         echo "无效选项"
         ;;
 esac
+```
 
 ## 6. Shell循环语句
 
@@ -328,6 +337,7 @@ for ((i=0; i<5; i++))
 do
     echo "i = $i"
 done
+```
 
 ### while循环
 
@@ -347,6 +357,7 @@ done
 #     echo "这是一个无限循环"
 #     sleep 1
 # done
+```
 
 ### until循环
 
@@ -359,6 +370,7 @@ do
     echo "计数：$count"
     count=$((count + 1))
 done
+```
 
 ## 7. Shell函数
 
@@ -375,6 +387,7 @@ greeting() {
 
 # 调用函数
 greeting "Shell"
+```
 
 ### 带返回值的函数
 
@@ -390,6 +403,7 @@ add() {
 # 调用函数并获取返回值
 result=$(add 10 20)
 echo "10 + 20 = $result"
+```
 
 ## 8. 常见Shell命令
 
@@ -426,6 +440,7 @@ head -5 file.txt
 
 # 搜索文件内容
 grep "pattern" file.txt
+```
 
 ### 系统信息
 
@@ -447,6 +462,7 @@ top
 # 查看网络连接
 netstat -tuln
 ss -tuln
+```
 
 ## 9. Shell脚本调试
 
@@ -461,6 +477,7 @@ bash -n script.sh
 
 # 进入调试模式
 bash -v script.sh
+```
 
 ### 在脚本中添加调试信息
 
@@ -478,6 +495,7 @@ echo "变量name：$name"
 set +x
 
 echo "调试模式关闭"
+```
 
 ## 10. 脚本示例：自动备份
 
@@ -512,6 +530,7 @@ echo "清理旧备份..."
 find $BACKUP_DIR -name "documents_*.tar.gz" -type f -mtime +7 -delete
 
 echo "备份任务完成！"
+```
 
 ## 总结
 
