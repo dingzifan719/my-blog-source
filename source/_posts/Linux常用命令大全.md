@@ -30,6 +30,7 @@ ls -lhS
 
 # 按修改时间排序（最新的在前面）
 ls -lht
+```
 
 ### 1.2 目录操作
 
@@ -60,6 +61,7 @@ rmdir dir_name
 
 # 删除目录及其内容（递归删除，慎用！）
 rm -rf dir_name
+```
 
 ### 1.3 文件操作
 
@@ -96,6 +98,7 @@ find . -type f -size +100M
 
 # 查找最近7天内修改过的文件
 find . -type f -mtime -7
+```
 
 ## 2. 文件内容查看和编辑
 
@@ -131,6 +134,7 @@ more file_name
 
 # 查看文件内容并显示行号
 nl file_name
+```
 
 ### 2.2 文本编辑
 
@@ -152,6 +156,7 @@ echo "Welcome to Linux!" >> file_name
 
 # 使用cat命令创建文件并写入内容（按Ctrl+D结束）
 cat > file_name
+```
 
 ## 3. 系统信息和管理
 
@@ -226,6 +231,7 @@ systemctl enable service_name
 
 # 禁止系统服务开机自启
 systemctl disable service_name
+```
 
 ## 4. 网络命令
 
@@ -261,6 +267,7 @@ netstat -an
 
 # 查看当前主机的网络连接情况
 lsof -i
+```
 
 ### 4.2 文件传输
 
@@ -285,6 +292,7 @@ curl -O https://example.com/file.zip
 
 # 使用curl发送HTTP请求
 curl https://example.com/api
+```
 
 ## 5. 压缩和解压缩
 
@@ -302,6 +310,7 @@ unzip archive.zip
 
 # 查看zip文件内容
 unzip -l archive.zip
+```
 
 ### 5.2 TAR格式
 
@@ -335,6 +344,7 @@ unzip -l archive.zip
 
 # 解压到指定目录
  tar -xzf archive.tar.gz -C /path/to/directory
+```
 
 ## 6. 用户和权限管理
 
@@ -376,6 +386,7 @@ su
 
 # 以root权限执行命令
 sudo command
+```
 
 ### 6.2 组管理
 
@@ -397,6 +408,7 @@ groups username
 
 # 查看当前用户所属的组
 groups
+```
 
 ### 6.3 权限管理
 
@@ -429,6 +441,7 @@ chown -R username:groupname dir_name
 - 第一组：所有者权限
 - 第二组：所属组权限
 - 第三组：其他用户权限
+```
 
 ## 7. 进程管理
 
@@ -464,6 +477,7 @@ lsof -i :port_number
 
 # 查看进程的CPU和内存使用情况
 top -p pid
+```
 
 ## 8. 磁盘和文件系统
 
@@ -494,6 +508,7 @@ e2fsck /dev/sda1
 
 # 格式化磁盘
 mkfs.ext4 /dev/sda1
+```
 
 ## 9. 文本处理
 
@@ -539,6 +554,7 @@ wc -w file_name
 
 # 查看文件字符数
 wc -c file_name
+```
 
 ## 10. 其他常用命令
 
@@ -578,6 +594,7 @@ echo $VAR_NAME
 
 # 查看PATH环境变量
 echo $PATH
+```
 
 ### 10.2 磁盘和文件系统
 
@@ -596,6 +613,7 @@ stat file_name
 
 # 查看当前目录的磁盘使用情况
 du -sh .
+```
 
 ### 10.3 网络和通信
 
@@ -617,6 +635,7 @@ dig example.com
 
 # 查看当前网络连接的详细信息
 ethtool eth0
+```
 
 ### 10.4 时间和日期
 
@@ -635,6 +654,7 @@ hwclock --systohc
 
 # 将硬件时钟同步到系统时间
 hwclock --hctosys
+```
 
 ## 总结
 
