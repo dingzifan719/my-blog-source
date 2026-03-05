@@ -532,6 +532,137 @@ find $BACKUP_DIR -name "documents_*.tar.gz" -type f -mtime +7 -delete
 echo "备份任务完成！"
 ```
 
+## 笔试题
+### 统计文件的行数
+```
+cat nowcoder.txt | wc -l
+```
+- wc命令的功能为统计指定文件中的字节数、字数、行数, 并将统计结果显示输出。
+- 该命令各选项含义如下：- c 统计字节数;- l 统计行数;- w 统计字数。
+
+### 输出 0 到 500 中 7 的倍数
+```
+seq 0 7 500
+```
+seq 用于生成从一个数到另一个数之间的所有整数。
+用法：seq [选项]... 尾数
+或：seq [选项]... 首数 尾数
+或：seq [选项]... 首数 增量 尾数
+
+```
+for i in {0..500}
+do
+    if [[ i%7 -eq 0 ]];then
+        echo $i
+    fi
+done
+```
+### 输出第5行的内容
+
+```
+head -n 5 nowcoder.txt | tail -n 1
+```
+
+### 打印空行的行号
+```
+awk '/^$/ {print NR}' nowcoder.txt
+```
+
+```//``` 是 awk 正则匹配模式的符号
+```^``` 匹配输入字符串的开始位置
+```$``` 匹配输入字符串的结束位置
+NR 属于 awk 内部变量，表示：已经读出的记录数，就是行号
+
+### 去掉空行
+写一个 bash脚本以去掉一个文本文件nowcoder.txt中的空行
+示例:
+假设nowcoder.txt 内容如下：
+```
+abc
+
+567
+
+
+aaa
+bbb
+
+
+
+ccc
+```
+你的脚本应当输出：
+```
+abc
+567
+aaa
+bbb
+ccc
+```
+可执行代码：
+```
+#! /bin/bash
+cat nowcoder.txt | awk NF
+```
+### 打印字母数小于8的单词
+
+写一个bash脚本以统计一个文本文件nowcoder.txt中字母数小于8的单词。
+示例:
+假设 nowcoder.txt 内容如下：
+```
+how they are implemented and applied in computer
+```
+
+你的脚本应当输出：
+```
+how
+they
+are
+and
+applied
+in
+```
+代码：
+```
+words=$(cat nowcoder.txt)
+for word in ${words}; do
+	if [ ${ #word } -lt 8 ]; then
+		echo ${word}
+	fi
+done
+```
+### 统计所有进程占用内存百分比的和
+假设 nowcoder.txt 内容如下：
+```
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.4  77744  8332 ?        Ss    2021   1:15 /sbin/init noibrs splash
+root         2  0.0  0.0      0     0 ?        S     2021   0:00 [kthreadd]
+root         4  0.0  0.0      0     0 ?        I<    2021   0:00 [kworker/0:0H]
+daemon     486  0.0  0.1  28340  2372 ?        Ss    2021   0:00 /usr/sbin/atd -f
+root       586  0.0  0.3  72308  6244 ?        Ss    2021   0:01 /usr/sbin/sshd -D
+root     12847  0.0  0.0   4528    68 ?        S<   Jan03   0:13 /usr/sbin/atopacctd
+root     16306  1.7  1.2 151964 26132 ?        S<sl Apr15 512:03 /usr/local/aegis/aegis_client/aegis_11_25/AliYunDun
+root     24143  0.0  0.4  25608  8652 ?        S<Ls 00:00   0:03 /usr/bin/atop -R -w /var/log/atop/atop_20220505 600
+root     24901  0.0  0.3 107792  7008 ?        Ss   15:37   0:00 sshd: root@pts/0
+root     24903  0.0  0.3  76532  7580 ?        Ss   15:37   0:00 /lib/systemd/systemd --user
+root     24904  0.0  0.1 111520  2392 ?        S    15:37   0:00 (sd-pam)
+```
+代码：
+```
+#!/bin/bash
+sum=0
+line=1
+for i in $(awk '{print $4}' nowcoder.txt); do
+    if [ $line -gt 1 ]; then
+        sum=$(echo "$i+$sum" | bc)
+    fi
+    let line++
+done
+echo $sum
+```
+
+### 
+
+
 ## 总结
 
 本教程介绍了Shell脚本的基础知识，包括：

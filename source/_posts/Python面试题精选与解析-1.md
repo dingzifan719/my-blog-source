@@ -57,6 +57,7 @@ original['hobbies'].append('coding')
 print("Original:", original)
 print("Shallow copy:", shallow_copy)
 print("Deep copy:", deep_copy)
+```
 
 **输出**：
 
@@ -64,6 +65,7 @@ print("Deep copy:", deep_copy)
 Original: {'name': 'Alice', 'age': 25, 'hobbies': ['reading', 'swimming', 'coding']}
 Shallow copy: {'name': 'Alice', 'age': 25, 'hobbies': ['reading', 'swimming', 'coding']}
 Deep copy: {'name': 'Alice', 'age': 25, 'hobbies': ['reading', 'swimming']}
+```
 
 ### 1.3 装饰器
 
@@ -130,6 +132,7 @@ def slow_function():
     time.sleep(1)
 
 slow_function()
+```
 
 ## 2. 数据结构与算法
 
@@ -178,6 +181,7 @@ set2 = {3, 4, 5, 6}
 print(f"Union: {set1 | set2}")
 print(f"Intersection: {set1 & set2}")
 print(f"Difference: {set1 - set2}")
+```
 
 ### 2.2 列表推导式
 
@@ -222,6 +226,7 @@ print(f"Dict: {dict_comp}")
 # 集合推导式
 set_comp = {x**2 for x in range(10)}
 print(f"Set: {set_comp}")
+```
 
 ### 2.3 生成器
 
@@ -301,7 +306,7 @@ print(f"Add 10: {acc.send(10)}")
 print(f"Add 20: {acc.send(20)}")
 print(f"Add 30: {acc.send(30)}")
 acc.close()
-
+```
 ## 3. 面向对象编程
 
 ### 3.1 类与对象
@@ -338,7 +343,7 @@ class ClassName:
     @staticmethod
     def static_method():
         pass
-
+```
 **示例**：
 
 ```python
@@ -442,6 +447,7 @@ print(f"Person 1 < Person 2: {person1 < person2}")
 # 字符串表示
 print(f"\nstr(): {str(person1)}")
 print(f"repr(): {repr(person1)}")
+```
 
 ### 3.2 继承与多态
 
@@ -566,6 +572,7 @@ print("\n=== Type checking ===")
 for shape in shapes:
     print(f"{shape} is instance of Shape: {isinstance(shape, Shape)}")
     print(f"{shape} is instance of Circle: {isinstance(shape, Circle)}")
+```
 
 ## 4. 并发编程
 
@@ -724,6 +731,7 @@ for thread in threads:
 print(f"Final counter value: {counter.value}")
 print(f"Expected value: {500}")
 print(f"Thread-safe: {counter.value == 500}")
+```
 
 ## 5. 常用模块与工具
 
@@ -953,6 +961,7 @@ if os.path.exists('app.log'):
     os.remove('app.log')
 
 print("\n所有模块示例已完成！")
+```
 
 ## 总结
 
