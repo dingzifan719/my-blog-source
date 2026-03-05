@@ -65,6 +65,7 @@ int MyClass::getValue() const {
 void MyClass::setValue(int value) {
     m_value = value;
 }
+```
 
 ## 2. 面向对象编程
 
@@ -125,6 +126,7 @@ int main() {
     
     return 0;
 }
+```
 
 ### 2.2 虚函数与纯虚函数
 
@@ -172,6 +174,7 @@ int main() {
     delete shape;
     return 0;
 }
+```
 
 ## 3. 内存管理
 
@@ -210,6 +213,7 @@ int main() {
     func();
     return 0;
 }
+```
 
 ### 3.2 智能指针
 
@@ -271,6 +275,7 @@ int main() {
     
     return 0;
 }
+```
 
 ### 3.3 内存泄漏
 
@@ -371,6 +376,7 @@ int main() {
     
     return 0;
 }
+```
 
 ### 4.2 STL容器
 
@@ -469,6 +475,7 @@ int main() {
     
     return 0;
 }
+```
 
 ## 5. 高级特性
 
@@ -582,6 +589,7 @@ int main() {
     
     return 0;
 }
+```
 
 ### 5.2 Lambda表达式
 
@@ -652,6 +660,7 @@ int main() {
     
     return 0;
 }
+```
 
 ## 6. 常见算法与数据结构
 
@@ -710,6 +719,7 @@ int main() {
     
     return 0;
 }
+```
 
 ### 6.2 链表与树
 
@@ -789,6 +799,7 @@ int main() {
     
     return 0;
 }
+```
 
 ## 7. 代码优化与性能
 
@@ -856,7 +867,7 @@ int main() {
     
     return 0;
 }
-
+```
 ## 总结
 
 本文精选了C++面试中常见的问题，涵盖了基本概念、面向对象编程、内存管理、模板与STL、高级特性、常见算法与数据结构、代码优化与性能等方面。每个问题都提供了详细的解析和代码示例，帮助读者理解和掌握C++的核心知识。
