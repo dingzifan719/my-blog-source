@@ -873,3 +873,70 @@ class BasePage:
         self.quit()
         return False
 ```
+## 实现测试框架，支持执行测试和给出结果
+构建一个简单的测试框架，核心在于实现三个功能：测试发现（寻找测试用例）、测试执行（运行逻辑）以及结果统计（断言与报告）。
+
+下面我以 Python 为例，设计一个轻量级的装饰器模式测试框架。
+
+### 核心代码实现
+我们可以利用 Python 的函数列表来收集测试用例。
+```Python
+class SimpleTestFramework:
+    def __init__(self):
+        self.tests = []
+
+    # 装饰器：用于标记测试函数
+    def test(self, func):
+        self.tests.append(func)
+        return func
+
+    # 执行测试并统计结果
+    def run(self):
+        passed = 0
+        failed = 0
+        print(f"开始执行 {len(self.tests)} 个测试用例...\n")
+        
+        for test_func in self.tests:
+            try:
+                test_func()
+                print(f"[PASS] {test_func.__name__}")
+                passed += 1
+            except AssertionError as e:
+                print(f"[FAIL] {test_func.__name__}: {e}")
+                failed += 1
+            except Exception as e:
+                print(f"[ERROR] {test_func.__name__}: {e}")
+                failed += 1
+        
+        print(f"\n测试结束: {passed} 通过, {failed} 失败")
+
+# 实例化框架
+framework = SimpleTestFramework()
+
+# 使用示例
+@framework.test
+def test_addition():
+    assert 1 + 1 == 2
+
+@framework.test
+def test_subtraction_fail():
+    assert 5 - 2 == 4  # 这里会失败
+
+# 执行
+if __name__ == "__main__":
+    framework.run()
+```
+
+### 关键特性
+装饰器机制 (@test)：这是现代测试框架（如 Pytest）的灵魂，让你可以随手标记任何函数为测试用例，而无需修改核心逻辑。
+
+异常捕获：通过 try-except 包裹执行过程，保证即使一个测试失败，后续的测试依然可以正常运行，不会导致程序中断。
+
+断言驱动：直接使用 Python 原生的 assert 语句，简洁明了。
+
+### 进阶改进方向
+如果你想把这个简单的脚本变成一个成熟的框架，可以考虑加入：
+
+- Setup/Teardown：在每个测试前后执行初始化和清理工作（如连接/断开数据库）。
+- 参数化测试：允许同一个测试逻辑针对不同输入集运行多次。
+- 测试报告导出：将结果输出为 JSON 或 HTML 文件。
