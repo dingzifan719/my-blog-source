@@ -282,3 +282,74 @@ Runc层（OCI运行时）
 │  └── Security Modules (SELinux, AppArmor)              │
 └─────────────────────────────────────────────────────────┘
 ═══════════════════════════════════════════════════════════
+```
+
+## 常见面试题
+
+### docker容器有几种状态
+四种状态，运行、已停止、重新启动、已推出
+
+### dockerfile里面最常见的指令是什么
+from：置顶基础镜像
+label：为镜像添加元数据标签
+run：运行指定命令
+cmd：启动时要运行的命令
+
+### dockerfile中copy和add的区别
+
+copy的src只能是本地文件
+
+### Docker 的核心实现技术是什么？
+关键点： Namespace（命名空间，实现资源隔离，如 PID、Network、Mount 等）和 Cgroups（控制组，实现资源限制，如 CPU、内存限制）。
+
+### Docker 与传统虚拟化（VM）的区别？
+
+关键点： 虚拟机有完整的 OS，占用资源大；容器共享宿主机内核，轻量级，启动秒级。
+
+### 什么是 Docker 镜像与容器的关系？
+
+关键点： 镜像（Image）是静态的模板（只读）；容器（Container）是镜像运行后的实例（动态、可读写）。
+
+### docker的常用命令
+docker pull拉取或者更新指定的镜像
+docker push 将镜像推送到远程仓库
+docker rm 删除容器
+docker rmi 删除镜像
+docker images 列出所有镜像
+docker ps列出所有容器
+
+### 容器与主机之间的数据拷贝命令
+docler cp命令用于容器与主机之间的数据拷贝
+主机到容器：docker cp <主机路径> <容器ID>:<容器路径>
+容器到主机：docker cp <容器ID>:<容器路径> <主机路径>
+
+### 常用命令
+
+1.  Docker 服务管理
+启动docker：systemctl start docker
+停止docker：systemctl stop docker
+重启docker：systemctl restart docker
+查看docker状态：systemctl status docker
+设置docker开启自启动：systemctl enable docker
+
+2. 系统与信息查看
+查看docker概要信息：docker info
+查看docker总体帮助文档：docker --help
+查看docker中的run命令帮助文档：docker run --help
+查看docker版本：docker version
+
+3. 镜像管理 (Images)
+查看本地主机上的docker所有镜像：docker images
+查看本地主机上的docker的所有镜像，只显示镜像id：docker images -q
+去配置的镜像网站寻找某个镜像：docker search [镜像名]
+从远程库拉取镜像：docker pull [镜像名]
+查看镜像所占空间：docker system df
+删除本地单个镜像：docker rmi [镜像ID/标签]
+强制删除本地单个镜像：docker rmi -f [镜像ID/标签]
+删除多个镜像：docker rmi [镜像ID1] [镜像ID2] ...
+
+4. 容器管理 (Containers)
+新建启动容器：docker run [参数] [镜像名]
+列出所有正在运行的容器：docker ps
+列出所有容器（包括已停止的）：docker ps -a
+删除容器：docker rm [容器ID/名称]
